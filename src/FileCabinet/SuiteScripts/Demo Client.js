@@ -20,7 +20,7 @@ define(['N/record', 'N/log'],
          */
         function pageInit(scriptContext) {
 
-            log.debug('Failure: ' + pageInit);
+            log.debug("pageInit triggerd", pageInit);
 
         }
 
@@ -38,7 +38,23 @@ define(['N/record', 'N/log'],
          * @since 2015.2
          */
         function fieldChanged(scriptContext) {
+            log.debug("fieldchanged triggerd", fieldChanged);
 
+            var currecord = scriptContext.currentRecord;
+            var currfield = scriptContext.fieldId;
+
+            if(currecord == 'vendpymt' && currfield == 'transactionnumber'){
+
+                var value = currecord.getText({
+                    fieldId: 'transactionnumber'
+                });
+
+                currecord.setValue({
+                    fieldId: 'memo',
+                    value: value,
+                });
+            }
+            log.debug("trandate", value);
         }
 
         /**
@@ -159,7 +175,6 @@ define(['N/record', 'N/log'],
 
         return {
             pageInit: pageInit,
-
             fieldChanged: fieldChanged,
             postSourcing: postSourcing,
             sublistChanged: sublistChanged,
