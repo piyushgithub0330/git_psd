@@ -3,11 +3,11 @@
  * @NScriptType ClientScript
  * @NModuleScope SameAccount
  */
-define(['N/record', 'N/log', 'N/ui/dialog'],
+define(['N/record', 'N/log'],
     /**
      * @param{record} record
      */
-    function (record, log, dialog) {
+    function (record, log) {
 
         /**
          * Function to be executed after page is initialized.
@@ -20,8 +20,7 @@ define(['N/record', 'N/log', 'N/ui/dialog'],
          */
         function pageInit(scriptContext) {
 
-            console.log('Failure: ' + reason);
-
+            log.debug('Failure: ' + pageInit);
 
         }
 
@@ -160,6 +159,7 @@ define(['N/record', 'N/log', 'N/ui/dialog'],
 
         return {
             pageInit: pageInit,
+
             fieldChanged: fieldChanged,
             postSourcing: postSourcing,
             sublistChanged: sublistChanged,
@@ -169,6 +169,7 @@ define(['N/record', 'N/log', 'N/ui/dialog'],
             validateInsert: validateInsert,
             validateDelete: validateDelete,
             saveRecord: saveRecord
+
         };
 
     });
