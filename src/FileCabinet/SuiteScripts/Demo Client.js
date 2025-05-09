@@ -20,7 +20,7 @@ define(['N/record', 'N/log'],
          */
         function pageInit(scriptContext) {
 
-            log.debug("pageInit triggerd", pageInit);
+            log.debug("pageInit_triggerd", pageInit);
 
         }
 
